@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <button-counter></button-counter>
                 </div>
             </div>
         </div>
