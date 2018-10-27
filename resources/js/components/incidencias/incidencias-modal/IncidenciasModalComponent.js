@@ -9,18 +9,21 @@ export default {
                 longitud: '',
                 nombre: '',
                 comentario: '',
-                tipos: ''
+                tipo: ''
             }
         }
     },
+    mounted() {
+        this.getTipos();
+    }, 
     created() {
         console.log('Component IncidenciasModal.');
     },
     methods: {
         getTipos:function() {
-            var urlKeep = 'api/tipo';
-            axios.get(urlKeep).then(response => {
-                this.tipo = response.data;
+            var urlTipo = 'api/tipo';
+            axios.get(urlTipo).then(response => {
+                this.tipos = response.data;
             });
         },
         addIncidencia: function() {

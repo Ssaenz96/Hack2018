@@ -11784,9 +11784,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 longitud: '',
                 nombre: '',
                 comentario: '',
-                tipos: ''
+                tipo: ''
             }
         };
+    },
+    mounted: function mounted() {
+        this.getTipos();
     },
     created: function created() {
         console.log('Component IncidenciasModal.');
@@ -11796,9 +11799,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getTipos: function getTipos() {
             var _this = this;
 
-            var urlKeep = 'api/tipo';
-            axios.get(urlKeep).then(function (response) {
-                _this.tipo = response.data;
+            var urlTipo = 'api/tipo';
+            axios.get(urlTipo).then(function (response) {
+                _this.tipos = response.data;
             });
         },
         addIncidencia: function addIncidencia() {
@@ -11827,185 +11830,199 @@ var render = function() {
           _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "modal-body" }, [
-            _c("div", { staticClass: "row" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("form", [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-md-12\n                                        col-sm-6\n                                        col-xs-6"
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "comentario" } }, [
-                        _vm._v("Comentario: ")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.incidencia.comentario,
-                            expression: "incidencia.comentario"
-                          }
-                        ],
-                        staticClass: "form-control input-sm",
-                        attrs: {
-                          type: "text",
-                          id: "comentario",
-                          placeholder: "Comentario de la Incidencia"
-                        },
-                        domProps: { value: _vm.incidencia.comentario },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.incidencia,
-                              "comentario",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-md-12\n                                        col-sm-6\n                                        col-xs-6"
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "tipo" } }, [
-                        _vm._v("Tipo de Incidencia: ")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.incidencia.tipos,
-                              expression: "incidencia.tipos"
-                            }
-                          ],
-                          attrs: { name: "tipo", id: "tipo" },
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.incidencia,
-                                "tipos",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            }
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("Seleccione el Tipo de la Incidencia")
+            _c("form", [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-12 col-md-6 col-xs-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-12\n                                    col-sm-12\n                                    col-xs-12"
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "descr" } }, [
+                            _vm._v("Descripcion")
                           ]),
                           _vm._v(" "),
-                          _vm._l(_vm.tipos, function(tipo) {
-                            return _c(
-                              "option",
-                              { domProps: { value: tipo.id } },
-                              [_vm._v(_vm._s(tipo.nombre))]
-                            )
-                          })
-                        ],
-                        2
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-md-12\n                                        col-sm-6\n                                        col-xs-6"
-                  },
-                  [
-                    _c("div", { staticClass: "input-group date" }, [
-                      _c("label", { attrs: { for: "fecha" } }, [
-                        _vm._v("Fecha de la Incidencia: ")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.incidencia.fecha,
-                            expression: "incidencia.fecha"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "date",
-                          id: "fechaIncidencia",
-                          name: "fechaIncidencia"
-                        },
-                        domProps: { value: _vm.incidencia.fecha },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.incidencia.comentario,
+                                expression: "incidencia.comentario"
+                              }
+                            ],
+                            staticClass: "form-control input-sm",
+                            attrs: {
+                              type: "text",
+                              id: "comentario",
+                              placeholder: "Descripción de la Incidencia"
+                            },
+                            domProps: { value: _vm.incidencia.comentario },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.incidencia,
+                                  "comentario",
+                                  $event.target.value
+                                )
+                              }
                             }
-                            _vm.$set(
-                              _vm.incidencia,
-                              "fecha",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
-                  ]
-                )
+                          })
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-12\n                                    col-sm-12\n                                    col-xs-12"
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "tipo" } }, [
+                            _vm._v("Tipo de Incidencia: ")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.incidencia.tipo,
+                                  expression: "incidencia.tipo"
+                                }
+                              ],
+                              staticClass: "form-control input-sm",
+                              attrs: { name: "tipo", id: "tipo" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.incidencia,
+                                    "tipo",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Seleccione el Tipo de la Incidencia")
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.tipos, function(tipo) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: tipo.id } },
+                                  [_vm._v(_vm._s(tipo.nombre))]
+                                )
+                              })
+                            ],
+                            2
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-12\n                                col-sm-12\n                                col-xs-12"
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "fecha" } }, [
+                            _vm._v("Fecha de la Incidencia: ")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.incidencia.fecha,
+                                expression: "incidencia.fecha"
+                              }
+                            ],
+                            staticClass: "form-control input-sm",
+                            attrs: {
+                              type: "date",
+                              id: "fechaIncidencia",
+                              name: "fechaIncidencia"
+                            },
+                            domProps: { value: _vm.incidencia.fecha },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.incidencia,
+                                  "fecha",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-12 col-md-6 col-xs-12" })
               ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "modal-footer" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-success btn-sm",
-                attrs: { type: "submit" },
-                on: { click: _vm.addIncidencia }
-              },
-              [_vm._v("\n\t\t\t\t\t\t\tEnviar\n\t\t\t\t\t")]
-            ),
+            ]),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-info btn-sm",
-                attrs: { type: "button", "data-dismiss": "modal" }
-              },
-              [_vm._v("\n\t\t\t\t\t\t    Cerrar\n\t\t\t\t\t")]
-            )
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success btn-sm",
+                  attrs: { type: "submit" },
+                  on: { click: _vm.addIncidencia }
+                },
+                [
+                  _vm._v(
+                    "\n                        Enviar\n                    "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-info btn-sm",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [
+                  _vm._v(
+                    "\n                        Cerrar\n                    "
+                  )
+                ]
+              )
+            ])
           ])
         ])
       ])
@@ -12018,14 +12035,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _vm._v("\n                    Reportar Incidencia\n                    "),
+      _vm._v("\n                Reportar Incidencia\n                "),
       _c(
         "button",
         {
           staticClass: "close",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("\n\t\t\t\t\t\t×\n\t\t\t\t\t")]
+        [_vm._v("\n                    ×\n                ")]
       )
     ])
   }
