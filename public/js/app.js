@@ -13904,6 +13904,7 @@ window.Vue = __webpack_require__(36);
  */
 
 Vue.component('example-component', __webpack_require__(39));
+<<<<<<< HEAD
 // Define a new component called button-counter
 Vue.component('button-counter', {
   data: function data() {
@@ -13913,6 +13914,8 @@ Vue.component('button-counter', {
   },
   template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
 });
+=======
+>>>>>>> a16a6dcc6418174a38df8a5f9e3c088ea79d2ea3
 
 var app = new Vue({
   el: '#app'
