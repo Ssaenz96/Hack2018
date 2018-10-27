@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <incidencias-component></incidencias-component>
                 </div>
             </div>
         </div>
