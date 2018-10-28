@@ -8,9 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmgO_13VXHz_0RF9ksJMqFuWLDRvYPohA&callback=initMap"
-    type="text/javascript"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPAxj22Xp10mrVlaXO-RgxPGrQ1HhZeTQ&libraries=places"></script>
+    {{-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmgO_13VXHz_0RF9ksJMqFuWLDRvYPohA&callback=initMap" --}}
+    {{-- type="text/javascript"></script> --}}
+    {{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPAxj22Xp10mrVlaXO-RgxPGrQ1HhZeTQ&libraries=places"></script> --}}
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 

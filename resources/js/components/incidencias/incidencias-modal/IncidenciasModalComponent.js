@@ -1,3 +1,5 @@
+import IncidenciasModalMapsComponent from './incidencias-modal-maps/IncidenciasModalMapsComponent.vue'
+
 export default {
     data() {
         return {
@@ -11,6 +13,10 @@ export default {
             }
         }
     },
+    components: {
+        'incidencias-modal-maps-component': IncidenciasModalMapsComponent
+    },
+
     mounted() {
         this.getTipos();
     }, 
@@ -33,6 +39,10 @@ export default {
                  .catch((error) => {
                      console.log(error);
                  })
+        },
+        setCoords(event) {
+            this.incidencia.latitud = event.latitud;
+            this.incidencia.longitud = event.longitud;
         }
     }
 }
