@@ -50,6 +50,7 @@ class IncidenciaController extends Controller
     public function store(Request $request)
     {
         try {
+            dd($request);
 
             $incidencia = new Incidencia();
 
