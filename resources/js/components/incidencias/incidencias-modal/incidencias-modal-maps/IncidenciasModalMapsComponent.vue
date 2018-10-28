@@ -1,15 +1,11 @@
 <template>
     <div>
         <div class="row">
-            <div class="form-group col-md-8 col-xs-8 col-sm-8">
+            <div class="form-group col-md-12 col-xs-12 col-sm-12">
                 <GmapAutocomplete class="form-control"
                                   @place_changed="setPlace">
                 </GmapAutocomplete>
-            </div>
-            <div class="form-group col-md-4 col-xs-4 col-sm-4">
-                <button class="btn btn-success input-sm" @click="usePlace">Add</button>
-            </div>
-            
+            </div>            
         </div>
         <div class="row">
             

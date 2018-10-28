@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-6
                                 col-sm-12
-                                col-xs-12">
+                                col-xs-12 mb-3">
                         <incidencias-modal-maps-component @coords="setCoords($event)"></incidencias-modal-maps-component>
                     </div>
                     <div class="col-md-6

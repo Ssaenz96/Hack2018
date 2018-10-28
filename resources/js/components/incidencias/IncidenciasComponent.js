@@ -3,7 +3,8 @@ import IncidenciasModalComponet from './incidencias-modal/IncidenciasModalCompon
 export default {
 	data() {
 		return {
-			addButton: false
+			addButton: false,
+			mensaje: 'Agregar'
 		}
 	},
 	
@@ -18,6 +19,11 @@ export default {
     methods: {
     	btnAgregar() {
     		this.addButton = !this.addButton;
+    		if (this.addButton) {
+    			this.mensaje = 'Regresar';
+    		} else {
+    			this.mensaje = 'Agregar';
+    		}
     	}
     }
 }
