@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -13,7 +14,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <autocomplete-location></autocomplete-location>
+                    <google-map
+                      name="example"
+                    ></google-map>
                     <incidencias-component></incidencias-component>
                 </div>
             </div>

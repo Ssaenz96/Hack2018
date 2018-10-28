@@ -13,10 +13,11 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-Vue.component('incidencias-component', 
+ Vue.component('google-map',require('./components/incidencias/MapaComponent.vue'));
+ Vue.component('autocomplete-location',require('./components/incidencias/AutocompleteComponent.vue'));
+Vue.component('incidencias-component',
     require('./components/incidencias/IncidenciasComponent.vue'));
-Vue.component('incidencias-modal-component', 
+Vue.component('incidencias-modal-component',
     require('./components/incidencias/incidencias-modal/IncidenciasModalComponent.vue'));
 const app = new Vue({
     el: '#app'
