@@ -26,6 +26,9 @@ Vue.component('button-counter', {
   template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
 });
 
+Vue.component('google-map',require('./components/incidencias/MapaComponent.vue'));
+Vue.component('autocomplete-location',require('./components/incidencias/AutocompleteComponent.vue'));
+
 const app = new Vue({
     el: '#app'
 });
