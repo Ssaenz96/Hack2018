@@ -12,16 +12,10 @@
                     <form>
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-xs-12">
+
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-xs-12">
                                 <div class="row">
-                                    <div class="col-md-12
-                                        col-sm-12
-                                        col-xs-12">
-                                        <div class="form-group">
-                                            <label for="descr">Descripcion</label>
-                                            <input type="text" id="comentario" class="form-control input-sm"
-                                                placeholder="Descripción de la Incidencia" v-model="incidencia.comentario">
-                                        </div>
-                                    </div>
                                     <div class="col-md-12
                                         col-sm-12
                                         col-xs-12">
@@ -42,10 +36,18 @@
                                                 v-model="incidencia.fecha" />
                                         </div>
                                     </div>
+                                    <div class="col-md-12
+                                        col-sm-12
+                                        col-xs-12">
+                                        <div class="form-group">
+                                            <label for="descr">Descripcion</label>
+                                            <textarea type="text" id="comentario" class="form-control input-sm"
+                                                rows="4" cols="50" 
+                                                placeholder="Descripción de la Incidencia" v-model="incidencia.comentario">
+                                            </textarea>   
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-xs-12">
-
                             </div>
                         </div>
                     </form>
@@ -53,7 +55,7 @@
                         <button type="submit" class="btn btn-success btn-sm" @click="addIncidencia">
                             Enviar
                         </button>
-                        <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
                             Cerrar
                         </button>
                     </div>
