@@ -1,5 +1,3 @@
-import Axios from "axios";
-
 export default {
     data() {
         return {
@@ -7,8 +5,8 @@ export default {
             incidencia: {
                 latitud: '',
                 longitud: '',
-                nombre: '',
                 comentario: '',
+                fecha: '',
                 tipo: ''
             }
         }
