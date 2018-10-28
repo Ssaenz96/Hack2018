@@ -18,6 +18,7 @@
                     <google-map
                       name="example"
                     ></google-map>
+                    <incidencias-component></incidencias-component>
                 </div>
             </div>
         </div>

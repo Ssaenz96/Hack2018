@@ -5,8 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
+ require('./bootstrap');
 window.Vue = require('vue');
 
 /**
@@ -14,21 +13,12 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-// Define a new component called button-counter
-Vue.component('button-counter', {
-  data: function () {
-    return {
-      count: 0
-    }
-  },
-  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
-});
-
-Vue.component('google-map',require('./components/incidencias/MapaComponent.vue'));
-Vue.component('autocomplete-location',require('./components/incidencias/AutocompleteComponent.vue'));
-
+ Vue.component('google-map',require('./components/incidencias/MapaComponent.vue'));
+ Vue.component('autocomplete-location',require('./components/incidencias/AutocompleteComponent.vue'));
+Vue.component('incidencias-component',
+    require('./components/incidencias/IncidenciasComponent.vue'));
+Vue.component('incidencias-modal-component',
+    require('./components/incidencias/incidencias-modal/IncidenciasModalComponent.vue'));
 const app = new Vue({
     el: '#app'
 });
