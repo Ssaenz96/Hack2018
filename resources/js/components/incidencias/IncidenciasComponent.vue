@@ -7,7 +7,7 @@
                         Incidencias
                         <button type="button" class="btn btn-success btn-sm pull-right fix-button" @click="btnAgregar">
                             <i class="fas fa-plus"></i>
-                            Agregar
+                            {{ mensaje }}
                         </button>
                     </div>
                     <vue-snotify></vue-snotify>
