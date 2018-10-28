@@ -47437,7 +47437,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         addIncidencia: function addIncidencia() {
-            console.log(this.incidencia);
+            var urlTipo = 'api/incidencia';
+            axios.post(urlTipo, this.incidencia).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
         }
     }
 });

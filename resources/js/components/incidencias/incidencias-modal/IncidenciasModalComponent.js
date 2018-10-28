@@ -25,7 +25,14 @@ export default {
             });
         },
         addIncidencia: function() {
-            console.log(this.incidencia);
+            var urlTipo = 'api/incidencia';
+            axios.post(urlTipo, this.incidencia)
+                 .then((response) => {
+                     console.log(response);
+                 })
+                 .catch((error) => {
+                     console.log(error);
+                 })
         }
     }
 }
