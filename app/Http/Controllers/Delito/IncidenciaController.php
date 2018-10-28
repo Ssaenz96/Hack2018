@@ -74,9 +74,11 @@ class IncidenciaController extends Controller
             if (Auth::user()->num_incidentes <= $this->numeroMaximoIntentos) {
                 Auth::user()->save();
                 $incidencia->save();
-                return $incidencia->id;
+
+                $this->mensajeMaximoIntentos = "Hola la denuncia #$incidencia->id ha sido añadida exitosamente";
+                return $this->mensajeMaximoIntentos;
             } else {
-                $this->mensajeMaximoIntentos = "Hola ".Auth::user()->name.", excedite el numero máximo de incidencias.";
+                $this->mensajeMaximoIntentos = "Hola ".Auth::user()->name.", excediste el numero máximo de incidencias.";
                 return $this->mensajeMaximoIntentos;
             }
 

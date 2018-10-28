@@ -9,8 +9,13 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import * as VueGoogleMaps from 'vue2-google-maps'
- 
+import * as VueGoogleMaps from 'vue2-google-maps';
+import Snotify from 'vue-snotify';
+import 'vue-snotify/styles/material.css';
+
+
+Vue.use(Snotify);
+
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyAPAxj22Xp10mrVlaXO-RgxPGrQ1HhZeTQ',

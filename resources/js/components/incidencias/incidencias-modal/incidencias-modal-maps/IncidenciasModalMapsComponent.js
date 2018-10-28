@@ -1,10 +1,12 @@
 export default {
 
 	data() {
-
 		return {
 			markers: [],
-			currentLocation : { lat : 0, lng : 0},
+			currentLocation : {
+				latitud: 0,
+				longitud: 0
+			},
 			place: null,
 			coords: {
 				latitud: '',
@@ -26,9 +28,11 @@ export default {
 
 		setPlace(place) {
 			this.place = place;
-			this.coords.latitud = this.place.geometry.location.lat();
-			this.coords.longitud = this.place.geometry.location.lng();
-			this.$emit('coords', this.coords);
+			this.currentLocation = {
+				latitud: this.place.geometry.location.lat(),
+				longitud: this.place.geometry.location.lng(),
+			};
+			this.$emit('coords', this.currentLocation);
 		},
 
 		usePlace(place) {
@@ -46,8 +50,8 @@ export default {
 		geolocation : function() {
 			navigator.geolocation.getCurrentPosition((position) => {
 				this.currentLocation = {
-					lat: position.coords.latitude,
-					lng: position.coords.longitude
+					latitud: position.coords.latitude,
+					longitud: position.coords.longitude
 				};
 			});
 		}
