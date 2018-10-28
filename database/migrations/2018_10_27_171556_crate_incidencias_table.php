@@ -16,8 +16,8 @@ class CrateIncidenciasTable extends Migration
         Schema::create('incidencias', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->float('latitud');
-            $table->float('longitud');
+            $table->double('latitud');
+            $table->double('longitud');
             $table->date('fecha');
             $table->string('comentario')
                   ->nullable();

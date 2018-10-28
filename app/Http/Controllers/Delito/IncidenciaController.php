@@ -5,9 +5,16 @@ namespace App\Http\Controllers\Delito;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Incidencia;
+use App\Http\Services\Validators;
+use Illuminate\Support\Facades\Auth;
 
 class IncidenciaController extends Controller
-{
+{   
+
+    private $validatorsService;
+    private $userController;
+    private $numeroMaximoIntentos;
+    private $mensajeMaximoIntentos;
 
     /**
      * Start authentication to users
@@ -16,6 +23,8 @@ class IncidenciaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->validatorsService = new Validators();
+        $this->numeroMaximoIntentos = 3;
     }
 
     /**
@@ -50,18 +59,26 @@ class IncidenciaController extends Controller
     public function store(Request $request)
     {
         try {
-            dd($request);
 
             $incidencia = new Incidencia();
 
-            $incidencia->latitud = $request->latitud;
-            $incidencia->longitud = $request->longitud;
-            $incidencia->fecha = $request->fecha;
-            $incidencia->comentario = $request->comentario;
-            $incidencia->tipo_id = $request->tipo_id;
+            $incidencia->latitud = $this->validatorsService->validarIntNull($request->latitud);
+            $incidencia->longitud = $this->validatorsService->validarIntNull($request->longitud);
+            $incidencia->fecha = $this->validatorsService->validarFechaNull($request->fecha);
+            $incidencia->comentario = $this->validatorsService->validarStringNull($request->comentario);
+            $incidencia->tipo_id = $this->validatorsService->validarIntNull($request->tipo);
             $incidencia->user_id = Auth::user()->id;
 
-            return $incidencia->id;
+            Auth::user()->num_incidentes = $this->validatorsService->validarIntNull(Auth::user()->num_incidentes) + 1;
+            
+            if (Auth::user()->num_incidentes <= $this->numeroMaximoIntentos) {
+                Auth::user()->save();
+                $incidencia->save();
+                return $incidencia->id;
+            } else {
+                $this->mensajeMaximoIntentos = "Hola ".Auth::user()->name.", excedite el numero máximo de incidencias.";
+                return $this->mensajeMaximoIntentos;
+            }
 
         } catch (Exception $e) {
             return $e;
